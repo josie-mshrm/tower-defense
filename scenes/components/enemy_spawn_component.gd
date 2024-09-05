@@ -7,6 +7,7 @@ const enemy_basic = preload("res://scenes/enemy_basic.tscn")
 @onready var spawn_timer: Timer = $spawn_timer
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	spawn_timer.start()
