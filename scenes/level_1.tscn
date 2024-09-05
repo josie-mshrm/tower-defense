@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvo1gdg147v46"]
+
+[ext_resource type="PackedScene" uid="uid://njg2l724q6hi" path="res://scenes/components/EnemySpawnComponent.tscn" id="1_leblm"]
+[ext_resource type="Script" path="res://tools/shape/shape_draw_2d.gd" id="2_awsdg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xav4h"]
+
+[node name="level 1" type="Node2D"]
+
+[node name="EnemySpawnComponent" parent="." instance=ExtResource("1_leblm")]
+position = Vector2(64, -50)
+metadata/_edit_group_ = true
+
+[node name="enemyspawnmarker" type="StaticBody2D" parent="EnemySpawnComponent"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemySpawnComponent/enemyspawnmarker"]
+shape = SubResource("RectangleShape2D_xav4h")
+
+[node name="ShapeDraw2D" type="Node2D" parent="EnemySpawnComponent/enemyspawnmarker/CollisionShape2D"]
+script = ExtResource("2_awsdg")
+color = Color(0.296875, 0.121765, 0.121765, 1)
