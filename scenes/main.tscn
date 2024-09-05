@@ -6,7 +6,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_8gagh"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 148, -59, -127.1, -16.8329, 127.1, 16.8329, -36, 22, 0, 0, 0, 0, 67, 35, 0.0562439, 0.85218, -0.0562439, -0.85218, 129, 42, 0, 0, 0, 0, 112, -17, 39.2241, -98.976, -39.2241, 98.976, 155, 68)
+"points": PackedVector2Array(0, 0, 0, 0, 148, -59, 2.83039, -77.981, -2.83039, 77.981, -58.3818, -16.6667, 0, 0, 0, 0, -63.8961, 111.274, 0.0562439, 0.85218, -0.0562439, -0.85218, 91.8825, 114.096, 0, 0, 0, 0, 32.604, -18.5481, 132.622, 135.739, -132.622, -135.739, 153.918, -54.2963)
 }
 point_count = 6
 
@@ -19,11 +19,13 @@ position = Vector2(-101, 0)
 zoom = Vector2(3, 3)
 
 [node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-66.3011, -28.2835)
+scale = Vector2(1.45078, 1.06299)
 curve = SubResource("Curve2D_8gagh")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2(148, -59)
-rotation = 2.7269
+rotation = 2.93928
 script = ExtResource("2_q67na")
 
 [node name="enemy_basic" parent="Path2D/PathFollow2D" instance=ExtResource("2_5ohnf")]
