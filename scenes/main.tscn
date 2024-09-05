@@ -1,7 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://duq5rffnu1pwu"]
 
 [ext_resource type="PackedScene" uid="uid://6rs0atg83bvx" path="res://scenes/tower.tscn" id="1_uems5"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://bvo1gdg147v46" path="res://scenes/level_1.tscn" id="2_scy4c"]
+=======
+[ext_resource type="PackedScene" uid="uid://c8mlkje0d7x5o" path="res://scenes/level_1.tscn" id="2_scy4c"]
+>>>>>>> origin/enemy-spawner
 
 [node name="main" type="Node2D"]
 

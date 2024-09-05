@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 [gd_scene load_steps=4 format=3 uid="uid://bvo1gdg147v46"]
 
 [ext_resource type="PackedScene" uid="uid://njg2l724q6hi" path="res://scenes/components/EnemySpawnComponent.tscn" id="1_leblm"]
+=======
+[gd_scene load_steps=4 format=3 uid="uid://c8mlkje0d7x5o"]
+
+[ext_resource type="PackedScene" uid="uid://dcsr7ktvvcdvn" path="res://scenes/components/EnemySpawnComponent.tscn" id="1_leblm"]
+>>>>>>> origin/enemy-spawner
 [ext_resource type="Script" path="res://tools/shape/shape_draw_2d.gd" id="2_awsdg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xav4h"]
