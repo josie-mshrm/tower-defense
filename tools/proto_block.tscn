@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://btwpx5lrk5pka"]
+
+[ext_resource type="Script" path="res://tools/shape/shape_draw_2d.gd" id="1_oamg5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4m6xb"]
+
+[node name="ProtoBlock" type="StaticBody2D"]
+
+[node name="ProtoBlockCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4m6xb")
+metadata/_edit_group_ = true
+
+[node name="ProtoBlockDraw" type="Node2D" parent="ProtoBlockCollision"]
+script = ExtResource("1_oamg5")

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://duq5rffnu1pwu"]
+
+[ext_resource type="PackedScene" uid="uid://6rs0atg83bvx" path="res://scenes/tower.tscn" id="1_uems5"]
+[ext_resource type="PackedScene" uid="uid://col6n8gb1475b" path="res://scenes/enemy_basic.tscn" id="2_5ohnf"]
+[ext_resource type="Script" path="res://scripts/path_follow_2d.gd" id="2_q67na"]
+
+[sub_resource type="Curve2D" id="Curve2D_8gagh"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 148, -59, -127.1, -16.8329, 127.1, 16.8329, -36, 22, 0, 0, 0, 0, 67, 35, 0.0562439, 0.85218, -0.0562439, -0.85218, 129, 42, 0, 0, 0, 0, 112, -17, 39.2241, -98.976, -39.2241, 98.976, 155, 68)
+}
+point_count = 6
+
+[node name="main" type="Node2D"]
+
+[node name="tower" parent="." instance=ExtResource("1_uems5")]
+position = Vector2(-101, 0)
+
+[node name="camera" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_8gagh")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(148, -59)
+rotation = 2.7269
+script = ExtResource("2_q67na")
+
+[node name="enemy_basic" parent="Path2D/PathFollow2D" instance=ExtResource("2_5ohnf")]
+MaxHealth = 20.0
+
+[node name="OrbHolder" type="Node2D" parent="."]
