@@ -1,22 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://duq5rffnu1pwu"]
+[gd_scene load_steps=3 format=3 uid="uid://dfm82mm3tgp25"]
 
-[ext_resource type="PackedScene" uid="uid://6rs0atg83bvx" path="res://scenes/tower.tscn" id="1_uems5"]
-<<<<<<< HEAD
-[ext_resource type="PackedScene" uid="uid://bvo1gdg147v46" path="res://scenes/level_1.tscn" id="2_scy4c"]
-=======
-[ext_resource type="PackedScene" uid="uid://c8mlkje0d7x5o" path="res://scenes/level_1.tscn" id="2_scy4c"]
->>>>>>> origin/enemy-spawner
+[ext_resource type="PackedScene" uid="uid://6rs0atg83bvx" path="res://scenes/tower.tscn" id="1_0hn5h"]
+[ext_resource type="PackedScene" uid="uid://c1rnhq4l5ruvc" path="res://scenes/level_1.tscn" id="2_3bt6k"]
 
 [node name="main" type="Node2D"]
 
-[node name="tower" parent="." instance=ExtResource("1_uems5")]
-position = Vector2(-101, 0)
-
-[node name="camera" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+metadata/_edit_lock_ = true
+
+[node name="tower" parent="." instance=ExtResource("1_0hn5h")]
+position = Vector2(-112, 0)
 
 [node name="OrbHolder" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="EnemyHolder" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
-[node name="level 1" parent="." instance=ExtResource("2_scy4c")]
+[node name="level 1" parent="." instance=ExtResource("2_3bt6k")]

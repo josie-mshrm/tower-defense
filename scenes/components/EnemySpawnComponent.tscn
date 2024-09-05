@@ -1,16 +1,10 @@
-<<<<<<< HEAD
-[gd_scene load_steps=2 format=3 uid="uid://njg2l724q6hi"]
-=======
-[gd_scene load_steps=2 format=3 uid="uid://dcsr7ktvvcdvn"]
->>>>>>> origin/enemy-spawner
+[gd_scene load_steps=2 format=3 uid="uid://5wg252bwvxsx"]
 
-[ext_resource type="Script" path="res://scenes/components/enemy_spawn_component.gd" id="1_dv7bq"]
+[ext_resource type="Script" path="res://scenes/components/enemy_spawn_component.gd" id="1_qaoon"]
 
 [node name="EnemySpawnComponent" type="Node2D"]
-script = ExtResource("1_dv7bq")
+script = ExtResource("1_qaoon")
 
 [node name="spawn_timer" type="Timer" parent="."]
-wait_time = 2.0
-autostart = true
 
 [connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]
