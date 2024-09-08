@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://brctm4i0vf2o4"]
+
+[ext_resource type="Script" path="res://scripts/classes/orb.gd" id="1_084yc"]
+[ext_resource type="PackedScene" uid="uid://c32giw1o6jci7" path="res://scenes/components/HitboxComponent.tscn" id="2_g6dlp"]
+[ext_resource type="Script" path="res://tools/shape/shape_draw_2d.gd" id="3_5fbrk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j166e"]
+resource_local_to_scene = true
+radius = 1.0
+
+[node name="orb" type="Node2D"]
+script = ExtResource("1_084yc")
+speed = 500
+
+[node name="hitbox" parent="." instance=ExtResource("2_g6dlp")]
+collision_layer = 64
+collision_mask = 60
+
+[node name="bulletshape" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("CircleShape2D_j166e")
+
+[node name="ShapeDraw2D" type="Node2D" parent="hitbox/bulletshape"]
+script = ExtResource("3_5fbrk")
+color = Color(1, 0.382813, 0.382813, 1)
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

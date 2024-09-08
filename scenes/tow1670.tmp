@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://6rs0atg83bvx"]
+
+[ext_resource type="Script" path="res://scripts/tower_basic.gd" id="1_jrd8l"]
+[ext_resource type="Script" path="res://tools/shape/shape_draw_2d.gd" id="2_wfjw0"]
+[ext_resource type="PackedScene" uid="uid://cdccctakfe58v" path="res://scenes/components/FiringComponent.tscn" id="3_p5yku"]
+[ext_resource type="PackedScene" uid="uid://c5kcleyvdtccj" path="res://scenes/orb_holder.tscn" id="4_mutgn"]
+[ext_resource type="PackedScene" uid="uid://5e4y7640lar2" path="res://scenes/components/RangeComponent.tscn" id="6_k1e6r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o5sah"]
+radius = 200.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s0b8w"]
+
+[node name="tower_basic" type="StaticBody2D" node_paths=PackedStringArray("base", "top_shape", "range_cmp", "firing_component")]
+script = ExtResource("1_jrd8l")
+tower_range = 20
+base = NodePath("base shape")
+top_shape = NodePath("top shape")
+range_cmp = NodePath("RangeComponent")
+firing_component = NodePath("top shape/firingcmp_basic")
+
+[node name="RangeComponent" parent="." instance=ExtResource("6_k1e6r")]
+collision_layer = 128
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RangeComponent"]
+shape = SubResource("CircleShape2D_o5sah")
+
+[node name="base shape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_s0b8w")
+
+[node name="ShapeDraw2D" type="Node2D" parent="base shape"]
+script = ExtResource("2_wfjw0")
+
+[node name="top shape" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-5, 5, -5, -5, 6, 0)
+
+[node name="ShapeDraw2D" type="Node2D" parent="top shape"]
+script = ExtResource("2_wfjw0")
+color = Color(0, 0, 0, 1)
+
+[node name="firingcmp_basic" parent="top shape" node_paths=PackedStringArray("tower_node", "orb_holder") instance=ExtResource("3_p5yku")]
+position = Vector2(2, 0)
+scale = Vector2(0.533333, 0.533333)
+tower_node = NodePath("../..")
+orb_holder = NodePath("../../OrbHolder")
+
+[node name="OrbHolder" parent="." instance=ExtResource("4_mutgn")]

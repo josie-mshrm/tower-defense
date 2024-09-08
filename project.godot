@@ -53,6 +53,17 @@ jump={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="world"
+2d_physics/layer_2="environment"
+2d_physics/layer_3="player"
+2d_physics/layer_4="player_hitbox"
+2d_physics/layer_5="soul"
+2d_physics/layer_6="soul_hitbox"
+2d_physics/layer_7="orb"
+2d_physics/layer_8="tower"
+
 [physics]
 
 2d/default_gravity_vector=Vector2(0, 0)

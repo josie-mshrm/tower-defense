@@ -1,21 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://dfm82mm3tgp25"]
 
-[ext_resource type="PackedScene" uid="uid://6rs0atg83bvx" path="res://scenes/tower.tscn" id="1_0hn5h"]
+[ext_resource type="PackedScene" uid="uid://c5kcleyvdtccj" path="res://scenes/orb_holder.tscn" id="1_lcle0"]
 [ext_resource type="PackedScene" uid="uid://c1rnhq4l5ruvc" path="res://scenes/level_1.tscn" id="2_3bt6k"]
 
 [node name="main" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
-metadata/_edit_lock_ = true
+[node name="OrbHolder" parent="." instance=ExtResource("1_lcle0")]
 
-[node name="tower" parent="." instance=ExtResource("1_0hn5h")]
-position = Vector2(-112, 0)
-
-[node name="OrbHolder" type="Node2D" parent="."]
-metadata/_edit_lock_ = true
-
-[node name="EnemyHolder" type="Node2D" parent="."]
+[node name="SoulHolder" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
 [node name="level 1" parent="." instance=ExtResource("2_3bt6k")]
