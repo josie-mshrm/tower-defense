@@ -2,37 +2,43 @@ class_name Orb
 extends Node2D
 
 @onready var orb_area: HitboxComponent
+@onready var orb_holder: Node2D
 
 @export var speed: int
-var direction: Vector2
-var orb_target
+@export var tracking: bool
+
+var orb_target: Node2D
+var last_target_direction: Vector2
+var target_direction: Vector2
+
 var output_damage = 4
 
+func _ready() -> void:
+	orb_holder = get_parent()
+
 func _physics_process(delta: float) -> void:
-	direction = find_target_direction()
-	
-	position += direction * speed * delta
-
-func fire(target: Soul):
-	if target == null:
-		return
-	
-	if target.is_queued_for_deletion: # if the target is not already queued to be deleted
-		orb_target = target
-		#print("Firing Bullet from " + str(self.global_position) + " to " + str(target))
+	## If tracking, find the position of the target every frame
+	## If not tracking, find the position of the target at the time of fire() call. 
+	if tracking and is_instance_valid(orb_target): # if the target exists, use that position. otherwise use the unit vector of the top tower rotation.
+		last_target_direction = find_target_direction(orb_target)
 	else:
-		orb_target = null
-
-func find_target_direction() -> Vector2:
-	var target_direction: Vector2
-	var target_pos: Vector2
-	if orb_target == null:
-		target_direction = Vector2.RIGHT
-	else:
-		target_pos = orb_target.global_position
-		target_direction = self.global_position.direction_to(target_pos)
+		target_direction = last_target_direction
 	
+	position += target_direction * speed * delta
+
+
+## Recieves a target and assigns it to the orb. 
+func fire(target: Node2D):
+	#print("target is: " + str(target))
+	orb_target = target
+	if not tracking:
+		last_target_direction = find_target_direction(orb_target)
+
+## Finds the target vector of the given target
+func find_target_direction(target: Node2D) -> Vector2:
+	target_direction = self.global_position.direction_to(target.global_position)
 	return target_direction
+
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area is HitboxComponent:
@@ -40,7 +46,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		var attack = Attack.new()
 		attack.attack_damage = output_damage
 		
-		print("hit")
+		#print("hit")
 		hitbox.damage(attack)
 		
 		queue_free()

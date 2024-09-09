@@ -10,7 +10,7 @@ position = Vector2(238, 90)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(3, 3)
 
 [node name="tower_basic" parent="." instance=ExtResource("2_ho8q3")]
 collision_layer = 128

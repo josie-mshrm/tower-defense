@@ -10,7 +10,8 @@ radius = 1.0
 
 [node name="orb" type="Node2D"]
 script = ExtResource("1_084yc")
-speed = 500
+speed = 400
+tracking = true
 
 [node name="hitbox" parent="." instance=ExtResource("2_g6dlp")]
 collision_layer = 64
