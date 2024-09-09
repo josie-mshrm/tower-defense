@@ -43,10 +43,12 @@ func find_target_direction(target: Node2D) -> Vector2:
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area is HitboxComponent:
 		var hitbox : HitboxComponent = area
+		var target_health
 		var attack = Attack.new()
 		attack.attack_damage = output_damage
 		
 		#print("hit")
-		hitbox.damage(attack)
+		target_health = hitbox.damage(attack)
+		print(target_health)
 		
 		queue_free()

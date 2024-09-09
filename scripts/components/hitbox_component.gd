@@ -4,6 +4,6 @@ class_name HitboxComponent
 
 @export var health: HealthComponent
 
-func damage(attack: Attack):
-	if health is HealthComponent:
-		health.damage(attack)
+func damage(attack: Attack) -> float:
+	health.damage(attack)
+	return health.health
