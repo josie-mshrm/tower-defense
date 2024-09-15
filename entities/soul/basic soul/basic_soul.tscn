@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfuuo1b7xciio"]
+
+[ext_resource type="Script" path="res://entities/soul/basic soul/basic_soul.gd" id="1_g67ov"]
+[ext_resource type="Shape2D" uid="uid://c7gchvf62r3xt" path="res://entities/soul/basic soul/basic_soul.tres" id="2_f7bvj"]
+[ext_resource type="PackedScene" uid="uid://cs5sh1ihbkv1c" path="res://common/components/HealthComponent.tscn" id="3_60odo"]
+[ext_resource type="Script" path="res://tools/shape/shape_draw_2d.gd" id="3_h4h4c"]
+[ext_resource type="PackedScene" uid="uid://c32giw1o6jci7" path="res://common/components/HitboxComponent.tscn" id="4_1oioo"]
+
+[node name="soul_basic" type="CharacterBody2D" node_paths=PackedStringArray("health_component")]
+collision_layer = 16
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_g67ov")
+health_component = NodePath("HealthComponent")
+max_health = 20
+speed = 150
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("2_f7bvj")
+
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("soul") instance=ExtResource("3_60odo")]
+soul = NodePath("..")
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health") instance=ExtResource("4_1oioo")]
+collision_layer = 32
+collision_mask = 64
+health = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = ExtResource("2_f7bvj")
+
+[node name="ShapeDraw2D" type="Node2D" parent="HitboxComponent/CollisionShape2D"]
+script = ExtResource("3_h4h4c")
+color = Color(0.726563, 0.204346, 0.204346, 1)

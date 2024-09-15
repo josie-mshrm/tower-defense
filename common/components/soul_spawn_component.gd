@@ -1,6 +1,6 @@
 extends Node2D
 
-const soul_basic = preload("res://scenes/soul_basic.tscn")
+const soul_basic = preload("res://entities/soul/basic soul/basic_soul.tscn")
 
 @onready var orb_holder: Node2D = $/root/main/OrbHolder
 @onready var soul_holder: Node2D = $/root/main/SoulHolder

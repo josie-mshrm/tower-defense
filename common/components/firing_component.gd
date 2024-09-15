@@ -7,7 +7,7 @@ extends Node2D
 @export var orb_load: Orb
 @export var orb_holder: Node2D
 
-const orb_type = preload("res://scenes/orb.tscn")
+const orb_type = preload("res://entities/orbs/orb.tscn")
 
 @onready var fire_rate: Timer = $"fire rate"
 

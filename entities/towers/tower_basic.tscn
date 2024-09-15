@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://6rs0atg83bvx"]
+[gd_scene load_steps=8 format=3 uid="uid://6rs0atg83bvx"]
 
-[ext_resource type="Script" path="res://scripts/tower_basic.gd" id="1_jrd8l"]
+[ext_resource type="Script" path="res://entities/towers/tower_basic.gd" id="1_jrd8l"]
 [ext_resource type="Script" path="res://tools/shape/shape_draw_2d.gd" id="2_wfjw0"]
-[ext_resource type="PackedScene" uid="uid://cdccctakfe58v" path="res://scenes/components/FiringComponent.tscn" id="3_p5yku"]
-[ext_resource type="PackedScene" uid="uid://c5kcleyvdtccj" path="res://scenes/orb_holder.tscn" id="4_mutgn"]
-[ext_resource type="PackedScene" uid="uid://5e4y7640lar2" path="res://scenes/components/RangeComponent.tscn" id="6_k1e6r"]
-[ext_resource type="Script" path="res://scripts/classes/orb_holder.gd" id="6_y2m4f"]
+[ext_resource type="PackedScene" uid="uid://cdccctakfe58v" path="res://common/components/FiringComponent.tscn" id="3_p5yku"]
+[ext_resource type="PackedScene" uid="uid://c5kcleyvdtccj" path="res://entities/orbs/orb_holder.tscn" id="4_mutgn"]
+[ext_resource type="PackedScene" uid="uid://5e4y7640lar2" path="res://common/components/RangeComponent.tscn" id="6_k1e6r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o5sah"]
 radius = 200.0
@@ -13,6 +12,8 @@ radius = 200.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0b8w"]
 
 [node name="tower_basic" type="StaticBody2D" node_paths=PackedStringArray("base", "top_shape", "range_cmp", "firing_component")]
+collision_layer = 128
+collision_mask = 20
 script = ExtResource("1_jrd8l")
 tower_range = 20
 base = NodePath("base shape")
@@ -22,7 +23,7 @@ firing_component = NodePath("top shape/firingcmp_basic")
 
 [node name="RangeComponent" parent="." instance=ExtResource("6_k1e6r")]
 collision_layer = 128
-collision_mask = 16
+collision_mask = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RangeComponent"]
 shape = SubResource("CircleShape2D_o5sah")
@@ -46,4 +47,3 @@ orb_holder = NodePath("../../OrbHolder")
 
 [node name="OrbHolder" parent="." instance=ExtResource("4_mutgn")]
 position = Vector2(2, 0)
-script = ExtResource("6_y2m4f")

@@ -1,5 +1,5 @@
 class_name Orb
-extends Node2D
+extends CharacterBody2D
 
 @onready var orb_area: HitboxComponent
 @onready var orb_holder: Node2D

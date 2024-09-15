@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c1rnhq4l5ruvc"]
 
-[ext_resource type="PackedScene" uid="uid://5wg252bwvxsx" path="res://scenes/components/SoulSpawnComponent.tscn" id="1_qxyx3"]
-[ext_resource type="PackedScene" uid="uid://6rs0atg83bvx" path="res://scenes/tower_basic.tscn" id="2_ho8q3"]
+[ext_resource type="PackedScene" uid="uid://5wg252bwvxsx" path="res://common/components/SoulSpawnComponent.tscn" id="1_qxyx3"]
+[ext_resource type="PackedScene" uid="uid://6rs0atg83bvx" path="res://entities/towers/tower_basic.tscn" id="2_ho8q3"]
 
 [node name="level 1" type="Node2D"]
 
@@ -13,6 +13,4 @@ metadata/_edit_group_ = true
 zoom = Vector2(3, 3)
 
 [node name="tower_basic" parent="." instance=ExtResource("2_ho8q3")]
-collision_layer = 128
-collision_mask = 124
 tower_range = 30

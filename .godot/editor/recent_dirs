@@ -1,5 +1,5 @@
-res://scripts/classes
-res://scripts/components
-res://scenes
-res://scenes/components
-res://scripts
+res://entities/orbs
+res://entities/soul/basic soul
+res://assets
+res://common/components
+res://entities/towers

@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://c5kcleyvdtccj"]
+[gd_scene load_steps=2 format=3 uid="uid://c5kcleyvdtccj"]
+
+[ext_resource type="Script" path="res://entities/orbs/orb_holder.gd" id="1_gx1pk"]
 
 [node name="OrbHolder" type="Node2D"]
+script = ExtResource("1_gx1pk")
